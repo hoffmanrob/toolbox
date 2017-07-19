@@ -276,7 +276,7 @@ if $db_type == "mysql"
     $logger.error("Could not write to #{$password_file}.")
     $logger.error("#{e.message}")
     send_mail
-    exit 1
+    raise e
   end
 end
 
