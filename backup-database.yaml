@@ -1,0 +1,32 @@
+## This file contains passwords and should NOT be world readable.
+##
+## The backup script assumes that any required directories have already been created
+## by a host configuration management tool such as ansible, puppet, or chef.
+
+
+## Global settings.
+log_dir: "/data/logs"
+
+
+## These settings can be overwritten by entries under individual 'databases'.
+backup_dir: "/data/backups"
+
+
+## A list of databases to backup.
+databases:
+  - crowd:
+      db_host: "crowd.example.local"
+      db_type: "mysql"
+      db_port: "3306"
+      db_name: "crowd"
+      db_user: "crowduser"
+      db_password: "some-password"
+  - jira:
+      backup_dir: "/data/backups-stash"
+      db_type: "postgresql"
+      db_host: "jira.example.local"
+      db_port: "5432"
+      db_name: "jira"
+      db_user: "jira"
+      db_password: "some-password"
+
